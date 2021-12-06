@@ -1,1 +1,45 @@
-<h2>Covid19 tracker app</h2>
+<div>
+  <div style="background-color:orangered; font-size: large; height:30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">  
+    <h4 style="color:white; text-align:center">Coronavirus (COVID-19) Live Status With Country</h4>  
+</div> 
+
+<!-- Total world wise country's Total confirmed ,deaths and recovered details  -->
+<br>
+<label class="label warning">Total Confirmed Worldwide :</label><label class="labeldt">{{TotalConfirmed}}</label>
+<label class="label danger">Total Deaths Worldwide :</label><label class="labeldt">{{TotalDeaths}}</label>
+<label class="label success">Total Recovered Worldwide :</label><label class="labeldt">{{TotalRecovered}}</label>
+<br>
+<br>
+<br>
+<br>
+
+
+  <label class="label info">Country Name:</label>&nbsp;&nbsp;
+  <select (change)="getCountry($event.target.value)">
+    <option *ngFor="let country of countries" value={{country.Slug}}>
+    {{country.Country}}
+    </option>
+  </select> &nbsp;&nbsp;
+
+
+  <button (click)="getCoronaData()" class="button button4">Seach Corona Data</button>
+  <h1 style="text-align: center; color:blue;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Country Wise Till Date : {{Date|date:'medium'}}</h1>
+  
+  
+  <table align="center" border="1" cellpadding="4" cellspacing="4">  
+    <tr>  
+        <th style="background-color: Yellow;color: blue">Country</th>
+        <th style="background-color: Yellow;color: blue">Total Confirmed</th>  
+        <th style="background-color: Yellow;color: blue">Total Recovered</th>  
+        <th style="background-color: Yellow;color: blue">Total Deaths</th>  
+        <th style="background-color: Yellow;color: blue">Total Active</th>  
+    </tr>    
+        <tr>  
+            <td>{{Country}}</td>
+            <td>{{Confirmed}}</td>  
+            <td>{{Recovered}}</td>  
+            <td>{{Deaths}}</td>  
+            <td>{{Active}}</td>  
+        </tr>
+</table>
+</div>
